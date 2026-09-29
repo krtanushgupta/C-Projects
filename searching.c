@@ -1,24 +1,4 @@
 #include <stdio.h>
-void del(int*,int,int);
-void del(int arr[],int n,int p){
-    for (int i = p-1; i < n; i++)
-    {
-        arr[i]=arr[i+1];
-    }
-    for (int i = 0; i < n-1; i++)
-    {
-        printf("%d\t",arr[i]);
-    }
-
-}
-int main(){
-    printf("deletion of element by pos via user defined fn\n");
-    int set[5]={71,28,93,74,45};
-    del(set,5,3);
-    return 0;
-}
-------------------------------------------------------------------------------------------------------------------------
-#include <stdio.h>
 int search(int *, int, int);
 int search(int *arr, int n, int t)
 {

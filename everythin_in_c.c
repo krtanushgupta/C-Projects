@@ -1306,3 +1306,948 @@
 //     printf("%d\n", p);
 //     return 0;
 // }
+// ---------------------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// typedef struct node
+// {
+//     int data;
+//     struct node *next;
+// } node;
+// int main()
+// {
+//     node *new_node;
+//     // new_node = malloc(sizeof(node));
+//     node a,b,c;
+//     a.data = 50;
+//     a.next =&b;
+//         b.data = 58;
+//         b.next=&c;
+//     c.data = 65;
+//     c.next=NULL;
+//     printf("linked lists STATIC ONE THO\n");
+//     printf("linked lists item a %d\n",a.data);
+//     printf("linked lists item b %d\n",b.data);
+//     printf("linked lists item c %d\n",c.data);
+//     return 0;
+// }
+// --------------------------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// #include <stdlib.h>
+// typedef struct node
+// {
+//     int age;
+//     struct node *next;
+// } node;
+// int main()
+// {
+//     printf("linked lists\n");
+
+//     node *a;
+//     node *b;
+//     node *c;
+//     a = malloc(sizeof(node));
+//     b = malloc(sizeof(node));
+//     c = malloc(sizeof(node));
+//     a->next = b;
+//     b->next = c;
+//     a->age = 78;
+//     b->age = 7;
+//     c->age = 44;
+//     c->next = NULL;
+//     node *ptr;
+//     node *next;
+//     ptr = a;
+//     while (ptr != NULL)
+//     {
+//         next = ptr->next;
+//         printf("%d\t", ptr->age);
+//         ptr = next;
+//     }
+
+//     printf("enter value to insert\n");
+//     int v;
+//     scanf("%d", &v);
+//     printf("enter postion to enter %d\n", v);
+//     int pos;
+//     scanf("%d", &pos);
+//     node *p;
+//     p = malloc(sizeof(node));
+//     p->age = v;
+//     ptr = a;
+//     node *k;
+//     for (int i = 1; i < 100; i++)
+//     {
+//         if (pos == 1)
+//         {
+//             k = ptr;
+//             ptr = p;
+//             p->next = k;
+//             a = p;
+//             break;
+//         }
+//         if (ptr == NULL)
+//         {
+//             break;
+//         }
+//         if (ptr->next == NULL)
+//         {
+//             p = ptr;
+//             p->next = NULL;
+//         }
+//         if (pos - 1 == i)
+//         {
+//             k = ptr->next;
+//             ptr->next = p;
+//             p->next = k;
+//         }
+//         ptr = ptr->next;
+//     }
+//     ptr = a;
+//     while (ptr != NULL)
+//     {
+//         next = ptr->next;
+//         printf("%d\t", ptr->age);
+//         ptr = next;
+//     }
+//     return 0;
+// }
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// #include <stdlib.h>
+// typedef struct node
+// {
+//     int data;
+//     struct node *next;
+// } node;
+// void pnode(struct node *ptr)
+// {
+//     struct node *k;
+//     k = malloc(sizeof(node));
+//     k = ptr;
+//     do
+//     {
+//         printf("%d\t", ptr->data);
+//         ptr = ptr->next;
+//     } while (ptr != k);
+// }
+// int main()
+// {
+//     printf("circular linked list\n");
+//     node *a;
+//     node *b;
+//     node *c;
+//     node *d;
+//     node *head;
+//     a = malloc(sizeof(node));
+//     b = malloc(sizeof(node));
+//     c = malloc(sizeof(node));
+//     d = malloc(sizeof(node));
+//     head = malloc(sizeof(node));
+//     a->data = 75;
+//     a->next = b;
+//     b->data = 57;
+//     b->next = c;
+//     c->data = 45;
+//     c->next = d;
+//     d->data = 85;
+//     d->next = a;
+//     head->next = c;
+//     pnode(a);
+//     return 0;
+// }
+// -----------------------------------------------------------------------------------------------------------------------------------------
+#include <stdio.h>
+// int main(){
+//     int bal=12345, cash , opt;
+//     printf("choice 1 = check balance \n");
+//     printf("choice 2 = desposit money\n");
+//     printf("choice 3 = withdraw\n");
+//     printf("Enter your choice=");
+//     scanf("%d",&opt);
+//     if(opt==1){
+//         printf("amount in bank %d", bal);
+//     }
+    
+//     else if(opt==2){
+//         printf(" enter amount to deposit=");
+//         scanf("%d",&cash);
+//         printf("update balance=%d",bal= bal + cash);
+//     }
+//      else if(opt==3){
+//         printf("enter amount to withdraw=");
+//         scanf("%d",&cash);
+//         if(cash>=bal){ printf("insufficient funds ");}
+//         else{ printf("available balance after transcation=%d", bal= bal-cash);}
+//     }
+//     else {printf("please enter a valid");}
+//     return 0;
+// }
+// -------------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// int main(){
+//     int a,b,s=0;
+//     printf("enter value");
+//     scanf("%d",&a);
+//     for(b=0;s<=a;s++){
+//         b=s+b;
+//     }
+//     printf("value is %d",b);
+//     return 0;
+// }
+// __________________________________________________________________________________________________________________________________________________________________________________________________________________________
+// #include <stdio.h>
+// int main(){
+//     printf("enter a number to create multiplication table");
+//     int a,n=0,pr;
+//     scanf("%d",&a);
+//     while(n<=10){
+//         n++;
+//         if(n<=10){
+//         pr=a*n;
+//         printf("%d X %d= %d\n",a,n,pr);
+//         }
+
+//     }
+//     return 0;
+// }
+// ____________________------------------------------___________________________________________________________________-_-_________________________________________________________________________________________________
+
+// #include <stdio.h>
+// int main(){
+//     printf("factorial calculator");
+//     int a,b=1,n=1;
+//     scanf("%d",&a);
+//      while(a>=b){
+//         n=b*n;
+//          b++;
+//      }
+//     printf("%d is factorial",n);
+//     return 0;
+// }
+
+// -----------__________________________________--------------------------------------------------------------------____________-_-__________________________________________________________-__-__________________________-_____________________-----------__________________-__-__________________________________________________________________________
+
+// #include <stdio.h>
+// int main(){
+//     printf("enter number to sum digits\t");
+//     int a,b=0;
+//     int c=0;
+//     scanf("%d",&a);
+// do{
+
+//     if(a!=0){
+//      b=a%10;
+//      c+=b;
+//      a=a/10;
+// }
+//     }while(a!=0);
+//     printf("sum of digits is %d ",c);
+//     return 0;
+// }
+
+// -------------------------------------------________________________________________--__--_____________________________________________________________________________________________________________________
+
+// #include <stdio.h>
+// int main(){
+//     int a,b,c=0;
+//     printf("number reverser \t");
+//     scanf("%d",&a);
+//     do {
+//         if(a!=0){
+//             b=a%10;
+//             c=c*10+b;
+//             a=a/10;
+//         }
+//     }while(a!=0);
+//     printf("\nreversed %d",c);
+//     return 0;
+// }
+// ----------------------------------------------------------------------------------------------__--__--_______________________________________________________________________________
+// #include <stdio.h>
+// int main()
+// {
+//     printf("\t\t\tpalindrome checker\n enter number to check ");
+//     int a, b, reversed = 0, c;
+//     scanf("%d", &a);
+//     int k = a;
+//     do
+//     {
+//         if (a != 0)
+//         {
+//             b = a % 10;
+//             reversed = reversed * 10 + b;
+//             a = a / 10;
+//         }
+//     } while (a != 0);
+
+//     if (k == reversed)
+//     {
+//         printf("yes its pallindrome");
+//     }
+//     else if (k != reversed)
+//     {
+//         printf("no its pallindrome");
+//     }
+//     return 0;
+// }
+
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// #include <stdio.h>
+// int main(){
+//     printf("largest number");
+//     int a=37492;
+//     int largest=0,b;
+//     do{
+//         if(a!=0){
+//             largest=a%10;
+//             a/=10;
+//         }
+//         if (largest=b)
+//     }
+//     return 0;
+// }
+
+// ----------------------------------------------------------------------------------------
+
+// #include <stdio.h>
+// int main(){
+//     printf("greatest common divisor\n enter number ");
+//     int a,b,n=1,gcd=0;
+//     scanf("%d",&a);
+//     scanf("%d",&b);
+//     while(a>=n){
+//         if (a%n==0&&b%n==0)
+//         {
+//             // printf("%d is the divisor\n",n);
+//             n++;
+//             if(gcd<n){
+//                 gcd=n;
+
+//             }
+//         }
+//         else{
+//             n++;
+//         }
+
+//     }
+//      printf("\n\n\tgcd is %d",gcd-1);
+
+//     return 0;
+// }
+
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// #include <stdio.h>
+// #include<math.h>
+// int main(){
+//     printf("\t\t\tarmstrong detector\n enter number to check  ");
+//     int a,b,c=0,n=0,g,f;
+//     scanf("%d",&a);
+//     g=a;f=a;
+//     float k;
+//      while(a!=0){
+//             n++;
+//             a=a/10;
+//         }
+
+//     while (g!=0)
+//     {
+//         b=g%10;
+//         g=g/10;
+//         k=pow(b,n);
+//         c=c+k;
+
+//     }
+//     if(f==c){
+//         printf("its armstrong number");
+//     }
+//     else{
+//         printf("its not armstrong number");
+//     }
+//     return 0;
+// }
+
+// -------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// #include <stdio.h>
+// int main()
+// {
+//     printf("\t\t\tfibonacci series\n enter number of terms  ");
+//     int a = 0, b = 1, c, n, f = 1, fib;
+//     scanf("%d", &n);
+//     if (n == 1)
+//     {
+//         fib = 0;
+//     }
+//     else
+//     {
+//         while (f < n)
+//         {
+//             f++;
+//             c = a + b;
+//             fib = b;
+//             printf("%d ", fib);
+//             // for next loop now
+//             a = b;
+//             b = c;
+//         }
+//     }
+//     return 0;
+// }
+// --------------------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// int main(){
+//     int a ,k,b,c=0;
+//     printf("pallindrome checker\n Enter number to check = ");
+//     scanf("%d",&a);
+//     k=a;
+//     while (a!=0)
+//     {
+//         b=a%10;;
+//         a=a/10;
+//         c=c*10+b;
+//     }
+
+//         if (k==c)
+//         {
+//             printf("yes %d is a pallindrome number",k);
+//         }
+//         else if(k!=c){
+//             printf("No %d is not pallindrome number ",k);
+//         }
+//     return 0;
+// }
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// int main(){
+//     int nums[n],target;
+//     int *t= &nums,h=0;
+//     for (int i = 0; i < n; i++)
+//     {
+//         scanf("%d",t);
+//         printf("the index %d has value of %d",i,*t);
+//     }
+//     do{
+//         if (*t+ *t++==target)
+//         {
+//             printf("[%d] [%d]",*t,*t++);
+//         }
+//         t++;
+//         h++;
+//     }while(h<=n)
+//     return 0;
+// }
+// --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// #include <math.h>
+
+// int main(){
+//          printf("enter side");
+//          int a,w;
+//          scanf("%d",&w);
+//          a=pow(w,2);
+//          printf("area of square is %d",a);
+//     return 0;
+// }
+
+// 
+
+// ___________________________________________________________________________________________________________________________________
+// #include <stdio.h>
+// int factorial (int);
+// int factorial (int a){ 
+//     if(a==0||a==1){
+//         return 1;
+//     }
+//     return factorial(a-1)*a;
+// }
+// int main(){
+//     int a; 
+//     scanf("%d",&a);
+//     printf("factorial of %d is = %d",a,factorial(a));
+//     return 0;
+// }
+// ------------------------------------------------------------------------------------------------------------------------------------
+
+// #include <stdio.h>
+// int avg(int,int ,int);
+// int avg (int a, int b, int c){
+    
+//     return (a+b+c)/3;
+// }
+// int main(){
+//     int a,b,c,y;
+//     scanf("%d",&a);
+//     scanf("%d",&b);
+//     scanf("%d",&c);
+//      y=avg(a,b,c);
+//      printf("avg is %d",y);
+//     return 0;
+// }
+
+// _----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// #include <stdio.h>
+// float temp(float);
+// float temp(float c){
+//  c=c*9/5+32;
+//  return c; 
+// }
+// float main(){
+//     float a,f;
+//     printf("converter from C to F");
+//     scanf("%f",&a);
+//     f=temp(a);
+//     printf(" temp in f is %f",f);
+//     return 0;
+// }
+
+// ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// float force(float);
+// float force(float a){
+//      a=a*9.82324;
+//      return a;
+// }
+// int main(){
+//     printf("enter mass");
+//     float a ,k; 
+//     scanf("%f",&k);
+//     a=force(k);
+//     printf("force =%f",a);
+//     return 0;
+// }
+
+// ------------------------------------------------------------------------------------------------------------------------------------
+
+// #include <stdio.h>
+// int fib(int);
+// int fib(int f){
+//     if(f==2|| f==1){
+//      return f-1;
+//     }
+//     else{
+//     return fib(f-1)+fib(f-2);
+//     }
+// }
+// int main(){
+//     printf("fibonaci series");
+//     int k,a;
+//     scanf("%d",&k);
+//     a =fib(k);
+//     printf("fibonaci term %d",a);
+//     return 0;
+// }
+
+// ---------------------------------------------------------------------------------------------------------------------
+
+// #include <stdio.h>
+// int sum(int);
+// int sum(int k){
+//     int a,b;
+//     for(a=0,b=0;b<=k;b++){
+//         a=a+b;
+//     }
+//     return a;
+// }
+// int main(){
+//     int n;
+//     scanf("%d",&n);
+//     n=sum(n);
+//     printf("sum of numbers upto input is %d",n);
+//     return 0;
+// }
+
+
+// --------------------------------------------------------------------------------------------------------------------------------------------------------
+                        //  RECURSIVE SUMMATION FN
+
+// #include <stdio.h>
+// int sum(int);
+// int sum(int n){
+//     if(n==1){
+//         return 1;
+//     }
+//     return n+sum(n-1);
+// }
+// int main(){
+//     int n;
+//     scanf("%d",&n);
+//     n=sum(n);
+//     printf("sum is %d",n);
+//     return 0;
+// }
+
+// ----------------------------------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+
+// int main(){
+//     printf("star");
+//     int a; scanf("%d",&a);
+//     for(int n=1; n<=a;n++){
+//         for(int k=1;k<=n*2-1;k++){
+//             printf("*");
+//         }
+//         printf("\n");
+
+//     }
+//     return 0;
+// }
+
+// -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+// #include <stdio.h>
+// int main(){
+//     int a,b,c,d,e,f,K,sum,p,z=0;
+//     scanf("%d",&a);
+//     scanf("%d",&b);
+//     scanf("%d",&c);
+//     scanf("%d",&d);
+//     scanf("%d",&e);
+//     scanf("%d",&f);
+//     printf("L1=[%d] [%d] [%d]\n",c,b,a);
+//     printf("L2=[%d] [%d] [%d]\n",f,e,d);
+//     K=c*100+b*10+a;
+//     b=f*100+e*10+d;
+//     sum = K+b;
+//     printf("sum is %d",sum);
+//     while(sum!=0){
+//       if(sum!=0) {
+//        p=sum%10;
+//        sum/=10;
+//        printf("[%d] ",p);
+//       }
+       
+//     }
+//     return 0;
+// }
+
+// -------------------------------------------------------------------------------------------------------------------
+
+// #include <stdio.h>
+// int main(){
+//     int i=72;
+//     int*j=&i;
+//     int k=*j;
+//     int a=*&i;
+//     printf("the value of %p\n",j);
+//     printf("the value of %d\n",k);
+//     printf("the value of %d",a);
+//     return 0;
+// }
+
+// ---------------------------------------------------------------------------------------------------------
+
+// #include <stdio.h>
+// int k(int);
+// int k(int a){
+//     while(a>=2){
+//     return a * k(a-1);
+//     }
+// }
+// int main(){
+//     int a=9,l;
+//     l=k(a);                       //  call by value
+//     printf("%d",l);
+//     return 0;
+// }
+
+
+// #include <stdio.h>
+// int sum(int*,int*);
+// int sum(int*x,int*y){
+//     *x=9;
+//     return *x+*y;
+// }
+// int main(){
+//     int a=9,b=7,n;
+//     n=sum(&a,&b);
+//     printf("the value of sum is %d ",n);
+//     printf("the value of a is %d ",a);
+//     return 0;
+// }
+
+// #include <stdio.h>
+// int swap(int*,int*);
+// int swap(int*a,int*b){
+//     int temp=*a;
+//     *a=*b;
+//     *b=temp;
+    
+// }
+// int main(){
+//     int a=10,b=11,k;
+//     k=swap(&a,&b);
+//     printf("value of a is %d\n",a);
+//     printf("value of b is %d",b);
+//     return 0;
+// }
+
+// #include <stdio.h>
+// int main(){
+//     int a=10;
+//     int*j=&a;
+//     int k = *j;
+//     printf("address of variable is %p\n",j);
+//     printf("this address would be the same %d\n",k);
+//     printf("the value of variable whose address is above is %d\n",k);
+//     return 0;
+// }
+
+
+// #include <stdio.h>
+// int lol(int*);
+// int lol(int*a){
+//    printf("address of i from fn is %p",a);
+//    return 5;
+// }
+// int main(){
+//     int i =10, k;
+//     printf("the value of i is %d\n",i);
+//     printf("the address of i is %p\n",&i);
+//     k =lol(&i);
+//     return 0;
+// }
+
+//     // BOTH THE ADDRESSES ARE DIFFERENT BCZ THE FN INTRODUCES ITS OWN VARIALBE AND BY ADDRESS FN & WE FIRST GAVE ADDRESS TO FN AND THEN BY USING VALUE OF FN * WE FETECHED THE VALUE OF I AND THUS THE LOL FN STORING IT IN VARIABLE INT A AS LISTED IN FN DEFINITION 
+
+// #include <stdio.h>
+// int pr(int*);
+// int pr(int *x){
+//     *x = *x *30;
+//     return *x; 
+// }
+// int main(){
+//     int i=567;
+//     i = pr(&i);
+//     printf("the value of i is %d",i);
+//     return 0;
+// }
+// ------------------------------------------------------------------------------------------------------------------------------------------------
+
+// #include <stdio.h>
+// int main(){
+//     int marks[5];
+//     printf("\t\t\t\tstudent gpa\n");
+//     for(int i=1;i<6;i++){
+//         scanf("%d",&marks[i]);
+//     }
+//     for (int i = 1; i < 6; i++)
+//     {
+//         printf("marks of %d is %d\n",i,marks[i]);
+//     }
+    
+//     return 0;
+// }
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// int main(){
+//     printf("\t\tarrays\n");
+//     int array[5];
+//     for (int i = 0; i < 5; i++)
+//     {
+//         scanf("%d\n",&array[i]);
+//     }
+//     for (int i = 0; i < 5; i++)
+//     {
+//         printf("%d is the marks of %d index\n",array[i],i);
+//     }
+    
+    
+    
+//     return 0;
+// }
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// int main(){
+//     int k[3]={1,2,3};
+//     int *u=&k[0];
+//      printf("%u address ",u);
+//      u++;
+//      printf("\n %u",*u);
+//     return 0;
+// }
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// int main(){
+//     int ary[3][2]={{1,1},{2,3},{3,5}};
+//     printf("%d",ary[2][0]);
+//     return 0;
+// }
+// ------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// int main(){
+//     printf("enter data \n");
+//     int ary[2][2];
+//     for (int i = 0; i < 2; i++)
+//     {
+//         for (int k = 0; k < 2; k++)
+//         {
+//            printf("the index rghtn is ary[%d][%d]  ",i,k);
+//             scanf("%d",&ary[i][k]); 
+//         }
+//         printf("\n");
+//     }
+    
+//     return 0;
+// }
+// ---------------------------------------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// int main(){
+//     printf("array\n");
+//     int ary[10];
+//     int *ptr = &ary[0];
+//     for (int i = 0; i < 10; i++)
+//     {
+//         scanf("%d",&ary[i]);
+//     }
+//     int *k=ptr+2;
+//     printf("the third element is %d",*k);
+//     printf("the first element is %d",*ptr);
+    
+//     return 0;
+// }
+// ----------------------------------------------------------------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// int main(){
+//     int table[10];
+//     for (int i = 0; i < 10; i++)
+//     {
+//         int k =  5*(i++);
+//         table[i]=k;
+//         printf("%d\n",table[i]);
+//     }
+//     return 0;
+// }
+// ----------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// void print(int*j,int n);
+// void print(int j[],int n){
+//     for (int i = 0; i < 9; i++)
+//     {
+//         printf("%d ",j[i]);
+//     }
+//     printf("\n");
+// }
+// void uno(int*k,int p);
+// void uno(int*k,int p){
+//     int temp=0;
+//     for (int i = 0; i < p/2; i++)
+//     {
+//         temp=k[i];
+//         k[i]=k[p-i-1];
+//         k[p-i-1]=temp;
+//     }
+    
+// }
+
+// int main(){
+//     int ar[9]={1,2,3,4,5,6,7,8,9};
+//     print(ar,9);
+//     uno(ar,9);
+//     print(ar,9);
+//     return 0;
+// }
+// --------------------------------------------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// void check(int*j,int n);
+// void check(int*j,int n){
+//     int k=0;
+//     for (int i = 0; i <= n; i++)
+//     {
+//         if (j[i]<0)
+//         {
+//             k++;
+//         }
+        
+//     }
+//     printf("total positive entries are %d\n",n-k);
+// }
+// int main(){
+//     int lol[]={1,2,4,5,6,-4,-44,8,-12,2,-9};
+//     check(lol,11);
+//     return 0;
+// }
+// -------------------------------------------------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// int main(){
+//     int table[3][10];
+//     printf("enter 3 numbers \n");
+//     int z,l,m;
+//     scanf("%d\n",&z);
+//     scanf("%d\n",&l);
+//     scanf("%d",&m);
+
+//         for (int k = 0; k <11; k++)
+//         {
+//             printf("%d ",z*k);
+//         }
+//         printf("\n");
+//         for (int k = 0; k < 11; k++)
+//         {
+//             printf("%d ",l*k);
+//         }
+//         printf("\n");
+//         for (int k = 0; k < 11; k++)
+//         {
+//             printf("%d ",m*k);
+//         }
+//         printf("\n");
+    
+//     return 0;
+// }
+// -----------------------------------------------------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// int main(){
+//     int lol[3][3][2];
+//     int i =3;
+//         for (int k = 0; k < 4; k++)
+//         {
+//             for (int d = 0; d < 3; d++)
+//             {
+//                 printf("{%d , %d}  ",&lol[i][k][d]);
+//             }
+//          printf("\n");    
+//         }  
+//     return 0;
+// }
+// ----------------------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// void check (int j[], int n , int t);
+// void check (int j[], int n , int t){
+//     for (int i = 0; i < n; i++)
+//     {
+//         for (int k = i+1; k < n-1; k++)
+//         {
+//             if (j[i]+j[k]==t)
+//             {
+//                 printf("%d %d \n",i,k);
+//             }
+            
+//         }
+        
+//     }
+    
+// }
+// int main(){
+//     int t;
+//     scanf("%d",&t);
+//     int num[]={1,2,3,4,5,6,7,8,9};
+//     check(num,9,t);
+//     return 0;
+// }
+// -------------------------------------------------------------------------------------------
+// #include <stdio.h>
+// int main(){
+//     // need to create str cpy 
+//     char st[]={"asdfghjkl"};
+//     char target[10];
+//     for (int i = 0; i < 10; i++)
+//     {
+//        target[i]=st[i];
+//     }
+//     puts(target);
+//     return 0;
+// }
+// ---------------------------------------------------------------------------------------------------

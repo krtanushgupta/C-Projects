@@ -39,7 +39,7 @@ This repository contains beginner-level programs, small games, and practice impl
 - Searching
 - Basic Algorithms
 - Problem Solving
-- Game Development in C
+- Basic Logic Game Development in C
 
 
 ## 🎯 Purpose

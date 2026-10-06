@@ -256,8 +256,8 @@
 //     bank base[3];
 //     bank*ptr;
 //     base[0].bal
-//     printf("kanada bank for idiots\n");
-//     printf("ps: it cant be in kanada\nenter your name(in english and your are gonna eat with a spoon bcz u look a filthy pig)");
+//     printf("bank \n");
+//     printf("ps: \nenter your name)");
 //     char name[10];
 //     int ac;
 //     scanf("%s\n",&name);

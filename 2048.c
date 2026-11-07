@@ -30,6 +30,7 @@ void gen(int g[4][4], int c[4][4])
 }
 int move_up(int gr[4][4], int ref[4][4], int *score)
 {
+    
     int up = 0;
     // -----------------------------------------------------compression slot down--------------------------------------------------
     for (int k = 0; k < 4; k++)
@@ -49,14 +50,6 @@ int move_up(int gr[4][4], int ref[4][4], int *score)
                     ref[i][k] = 1;
                     ref[i + m][k] = 0;
                 }
-                // --------------------------------------------------------attempted comp+merge slot down-------------------------------------
-                // if (gr[i + 1][k] == gr[i][k] && gr[i][k] != 0)
-                // {
-                //     gr[i][k] = 2 * (gr[i + 1][k]);
-                //     gr[i + 1][k] = 0;
-                //     ref[i][k] = 1;
-                //     ref[i + 1][k] = 0;
-                // }
             }
         }
     }
@@ -68,7 +61,7 @@ int move_up(int gr[4][4], int ref[4][4], int *score)
             if (gr[i + 1][k] == gr[i][k] && gr[i][k] != 0)
             {
                 gr[i][k] = 2 * (gr[i + 1][k]);
-                score += gr[i][k];
+                *score += gr[i][k];
                 gr[i + 1][k] = 0;
                 ref[i][k] = 1;
                 ref[i + 1][k] = 0;
@@ -117,7 +110,7 @@ int move_down(int gr[4][4], int ref[4][4], int *score)
             if (gr[i][k] == gr[i - 1][k] && gr[i][k] != 0)
             {
                 gr[i][k] = 2 * (gr[i - 1][k]);
-                score = score + gr[i][k];
+                *score = *score + gr[i][k];
                 gr[i - 1][k] = 0;
                 ref[i][k] = 1;
                 ref[i - 1][k] = 0;
@@ -164,7 +157,7 @@ int move_right(int gr[4][4], int ref[4][4], int *score)
             if (gr[k][i + 1] == gr[k][i] && gr[k][i + 1] != 0)
             {
                 gr[k][i + 1] = 2 * (gr[k][i]);
-                score = score + gr[k][i + 1];
+                *score = *score + gr[k][i + 1];
                 ref[k][i + 1] = 1;
                 gr[k][i] = 0;
                 ref[k][i] = 0;
@@ -211,7 +204,7 @@ int move_left(int gr[4][4], int ref[4][4], int *score)
             if (gr[k][i + 1] == gr[k][i] && gr[k][i] != 0)
             {
                 gr[k][i] = 2 * (gr[k][i + 1]);
-                score = score + gr[k][i];
+                *score = *score + gr[k][i];
                 ref[k][i] = 1;
                 gr[k][i + 1] = 0;
                 ref[k][i + 1] = 0;

@@ -97,13 +97,13 @@ void move_down(int gr[4][4], int ref[4][4])
                     ref[i][k] = 1;
                 }
                 // -------------------------------merge and compression slot down---------------------------------------
-                if (gr[i][k] == gr[i - 1][k] && gr[i][k] != 0)
-                {
-                    gr[i][k] = 2 * (gr[i - 1][k]);
-                    gr[i - 1][k] = 0;
-                    ref[i][k] = 1;
-                    ref[i - 1][k] = 0;
-                }
+                // if (gr[i][k] == gr[i - 1][k] && gr[i][k] != 0)
+                // {
+                //     gr[i][k] = 2 * (gr[i - 1][k]);
+                //     gr[i - 1][k] = 0;
+                //     ref[i][k] = 1;
+                //     ref[i - 1][k] = 0;
+                // }
             }
         }
     }

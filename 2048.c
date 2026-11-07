@@ -267,7 +267,7 @@ int main()
             r = move_right(grid, check, &score);
             printf("your score -> %d\n", score);
         }
-        if (l == 4 || d == 4 || u == 2 || r == 2)
+        if (l == 4 || d == 4 || u == 4 || r == 4)
         {
             printf("GAME OVER!!!\n");
             exit(0);

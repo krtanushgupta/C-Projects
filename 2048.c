@@ -85,7 +85,7 @@ void move_down(int gr[4][4], int ref[4][4])
         {
             for (int m = 0; m < 4; m++)
             {
-                if (i - m < 0)
+                if (i - m <=-1&&i-1>=0)
                 {
                     continue;
                 }

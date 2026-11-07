@@ -35,7 +35,7 @@ void move_up(int gr[4][4], int ref[4][4])
     // -----------------------------------------------------compression slot down--------------------------------------------------
     for (int k = 0; k < 4; k++)
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 3; i++)
         {
             for (int m = 1; m < 4; m++)
             {
@@ -64,7 +64,7 @@ void move_up(int gr[4][4], int ref[4][4])
     // ---------------------------------------------------------- only merge slot down-----------------------------------------
     for (int k = 0; k < 4; k++)
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 3; i++)
         {
             if (gr[i + 1][k] == gr[i][k] && gr[i][k] != 0)
             {
@@ -182,7 +182,7 @@ void move_left(int gr[4][4], int ref[4][4])
     }
     for (int k = 0; k < 4; k++)
     {
-        for (int i = 0; i < 4; i++)
+        for (int i = 0; i < 3; i++)
         {
             if (gr[k][i+1]==gr[k][i]&&gr[k][i]!=0)
             {

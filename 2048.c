@@ -2,19 +2,17 @@
 #include <time.h>
 #include <stdlib.h>
 #include <math.h>
-void print(int gr[4][4], int c)
+void print(int gr[4][4])
 {
-    printf("------------2048-----------\n");
+    printf("\t\t-----------------------------------------2048--------------------------------------\n\n");
     for (int i = 0; i < 4; i++)
     {
         for (int j = 0; j < 4; j++)
         {
-            printf("|   %d   ", gr[i][j]);
+            printf("\t\t|   %d   ", gr[i][j]);
         }
-        printf("\n");
+        printf("\n\t\t----------------------------------------------------------------------------------\n");
     }
-    printf("--------------------------------------------------------------------------------------------------------------------------------------\n");
-    printf("%d\n", c);
 }
 void gen(int g[4][4], int c[4][4])
 {
@@ -30,8 +28,9 @@ void gen(int g[4][4], int c[4][4])
     g[x][y] = (((rlol % 5 + 1) / 5) > 0) ? 4 : 2;
     c[x][y] = 1;
 }
-void move_up(int gr[4][4], int ref[4][4])
+int move_up(int gr[4][4], int ref[4][4], int *score)
 {
+    int up = 0;
     // -----------------------------------------------------compression slot down--------------------------------------------------
     for (int k = 0; k < 4; k++)
     {
@@ -51,13 +50,13 @@ void move_up(int gr[4][4], int ref[4][4])
                     ref[i + m][k] = 0;
                 }
                 // --------------------------------------------------------attempted comp+merge slot down-------------------------------------
-                if (gr[i + 1][k] == gr[i][k] && gr[i][k] != 0)
-                {
-                    gr[i][k] = 2 * (gr[i + 1][k]);
-                    gr[i + 1][k] = 0;
-                    ref[i][k] = 1;
-                    ref[i + 1][k] = 0;
-                }
+                // if (gr[i + 1][k] == gr[i][k] && gr[i][k] != 0)
+                // {
+                //     gr[i][k] = 2 * (gr[i + 1][k]);
+                //     gr[i + 1][k] = 0;
+                //     ref[i][k] = 1;
+                //     ref[i + 1][k] = 0;
+                // }
             }
         }
     }
@@ -69,23 +68,34 @@ void move_up(int gr[4][4], int ref[4][4])
             if (gr[i + 1][k] == gr[i][k] && gr[i][k] != 0)
             {
                 gr[i][k] = 2 * (gr[i + 1][k]);
+                score += gr[i][k];
                 gr[i + 1][k] = 0;
                 ref[i][k] = 1;
                 ref[i + 1][k] = 0;
             }
+            if (gr[i + 1][k] != 0 && gr[i][k] != gr[i + 1][k] && gr[i][k] != 0)
+            {
+                up++;
+            }
+            else
+            {
+                up = 0;
+            }
         }
     }
+    return up;
 }
-void move_down(int gr[4][4], int ref[4][4])
+int move_down(int gr[4][4], int ref[4][4], int *score)
 {
+    int down = 0;
     // -----------------------------------------------------compression slot down--------------------------------------------------
     for (int k = 0; k < 4; k++)
     {
-        for (int i = 3; i > -1; i--)
+        for (int i = 3; i > 0; i--)
         {
             for (int m = 0; m < 4; m++)
             {
-                if (i - m <=-1&&i-1>=0)
+                if (i - m <= -1 && i - 1 >= 0)
                 {
                     continue;
                 }
@@ -96,14 +106,6 @@ void move_down(int gr[4][4], int ref[4][4])
                     ref[i - m][k] = 0;
                     ref[i][k] = 1;
                 }
-                // -------------------------------merge and compression slot down---------------------------------------
-                // if (gr[i][k] == gr[i - 1][k] && gr[i][k] != 0)
-                // {
-                //     gr[i][k] = 2 * (gr[i - 1][k]);
-                //     gr[i - 1][k] = 0;
-                //     ref[i][k] = 1;
-                //     ref[i - 1][k] = 0;
-                // }
             }
         }
     }
@@ -115,15 +117,26 @@ void move_down(int gr[4][4], int ref[4][4])
             if (gr[i][k] == gr[i - 1][k] && gr[i][k] != 0)
             {
                 gr[i][k] = 2 * (gr[i - 1][k]);
+                score = score + gr[i][k];
                 gr[i - 1][k] = 0;
                 ref[i][k] = 1;
                 ref[i - 1][k] = 0;
             }
+            if (gr[i + 1][k] != 0 && gr[i][k] != gr[i + 1][k] && gr[i][k] != 0)
+            {
+                down++;
+            }
+            else
+            {
+                down = 0;
+            }
         }
     }
+    return down;
 }
-void move_right(int gr[4][4], int ref[4][4])
+int move_right(int gr[4][4], int ref[4][4], int *score)
 {
+    int right = 0;
     for (int k = 3; k > -1; k--)
     {
         for (int i = 0; i < 4; i++)
@@ -151,15 +164,26 @@ void move_right(int gr[4][4], int ref[4][4])
             if (gr[k][i + 1] == gr[k][i] && gr[k][i + 1] != 0)
             {
                 gr[k][i + 1] = 2 * (gr[k][i]);
+                score = score + gr[k][i + 1];
                 ref[k][i + 1] = 1;
                 gr[k][i] = 0;
                 ref[k][i] = 0;
             }
+            if (gr[i + 1][k] != 0 && gr[i][k] != gr[i + 1][k] && gr[i][k] != 0)
+            {
+                right++;
+            }
+            else
+            {
+                right = 0;
+            }
         }
     }
+    return right;
 }
-void move_left(int gr[4][4], int ref[4][4])
+int move_left(int gr[4][4], int ref[4][4], int *score)
 {
+    int left = 0;
     for (int k = 0; k < 4; k++)
     {
         for (int i = 0; i < 4; i++)
@@ -184,32 +208,39 @@ void move_left(int gr[4][4], int ref[4][4])
     {
         for (int i = 0; i < 3; i++)
         {
-            if (gr[k][i+1]==gr[k][i]&&gr[k][i]!=0)
+            if (gr[k][i + 1] == gr[k][i] && gr[k][i] != 0)
             {
-                gr[k][i]=2*(gr[k][i+1]);
-                ref[k][i]=1;
-                gr[k][i+1]=0;
-                ref[k][i+1]=0;
+                gr[k][i] = 2 * (gr[k][i + 1]);
+                score = score + gr[k][i];
+                ref[k][i] = 1;
+                gr[k][i + 1] = 0;
+                ref[k][i + 1] = 0;
             }
-            
+            if (gr[i + 1][k] != 0 && gr[i][k] != gr[i + 1][k] && gr[i][k] != 0)
+            {
+                left++;
+            }
+            else
+            {
+                left = 0;
+            }
         }
-        
     }
-    
+    return left;
 }
 int main()
 {
+    int score = 0;
+    int r = 0, l = 0, d = 0, u = 0;
     srand(time(0));
     int grid[4][4] = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
     int check[4][4] = {{0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}, {0, 0, 0, 0}};
-    int rlol, x, y, bust = 0, count = 0;
-    printf("count=%d\n", count);
+    int rlol, x, y;
     while (1)
     {
-        count++;
         gen(grid, check);
-        print(grid, count);
-        printf("select your move:-\n 1.Move Up(W)\t2.Move Right(D)\t3.Move Left(A)\t4.Move Down(S)\n");
+        print(grid);
+        printf("select your move->\n 1.Move Up(W)\t2.Move Right(D)\t3.Move Left(A)\t4.Move Down(S)\n press any other key to EXIT\n");
         char move;
         scanf(" %c", &move);
         if (move != 'a' && move != 'A' && move != 's' && move != 'S' && move != 'D' && move != 'd' && move != 'w' && move != 'W')
@@ -218,19 +249,28 @@ int main()
         }
         else if (move == 'a' || move == 'A')
         {
-            move_left(grid, check);
+            l = move_left(grid, check, &score);
+            printf("your score -> %d\n", score);
         }
         else if (move == 's' || move == 'S')
         {
-            move_down(grid, check);
+            d = move_down(grid, check, &score);
+            printf("your score -> %d\n", score);
         }
         else if (move == 'w' || move == 'W')
         {
-            move_up(grid, check);
+            u = move_up(grid, check, &score);
+            printf("your score -> %d\n", score);
         }
         else if (move == 'd' || move == 'D')
         {
-            move_right(grid, check);
+            r = move_right(grid, check, &score);
+            printf("your score -> %d\n", score);
+        }
+        if (l == 4 || d == 4 || u == 2 || r == 2)
+        {
+            printf("GAME OVER!!!\n");
+            exit(0);
         }
     }
 

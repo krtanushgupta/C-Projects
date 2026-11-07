@@ -2,7 +2,7 @@
 #include <time.h>
 #include <stdlib.h>
 #include <math.h>
-void print(int gr[4][4])
+void print(int gr[4][4], int c)
 {
     printf("------------2048-----------\n");
     for (int i = 0; i < 4; i++)
@@ -14,6 +14,7 @@ void print(int gr[4][4])
         printf("\n");
     }
     printf("--------------------------------------------------------------------------------------------------------------------------------------\n");
+    printf("%d\n", c);
 }
 void gen(int g[4][4], int c[4][4])
 {
@@ -77,7 +78,7 @@ void move_up(int gr[4][4], int ref[4][4])
 }
 void move_down(int gr[4][4], int ref[4][4])
 {
-// -----------------------------------------------------compression slot down--------------------------------------------------
+    // -----------------------------------------------------compression slot down--------------------------------------------------
     for (int k = 0; k < 4; k++)
     {
         for (int i = 3; i > -1; i--)
@@ -95,7 +96,7 @@ void move_down(int gr[4][4], int ref[4][4])
                     ref[i - m][k] = 0;
                     ref[i][k] = 1;
                 }
-// -------------------------------merge and compression slot down---------------------------------------
+                // -------------------------------merge and compression slot down---------------------------------------
                 if (gr[i][k] == gr[i - 1][k] && gr[i][k] != 0)
                 {
                     gr[i][k] = 2 * (gr[i - 1][k]);
@@ -106,7 +107,7 @@ void move_down(int gr[4][4], int ref[4][4])
             }
         }
     }
-// --------------------merge slot below------------------------------------------------------
+    // --------------------merge slot below------------------------------------------------------
     for (int k = 0; k < 4; k++)
     {
         for (int i = 3; i > -1; i--)
@@ -121,11 +122,80 @@ void move_down(int gr[4][4], int ref[4][4])
         }
     }
 }
-void move_left(int gr[4][4], int ref[4][4])
-{
-}
 void move_right(int gr[4][4], int ref[4][4])
 {
+    for (int k = 3; k > -1; k--)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            for (int m = 0; m < 4; m++)
+            {
+                if (i + m >= 4)
+                {
+                    continue;
+                }
+                if (gr[k][i] != 0 && gr[k][i + m] == 0)
+                {
+                    gr[k][i + m] = gr[k][i];
+                    gr[k][i] = 0;
+                    ref[k][i + m] = 1;
+                    ref[k][i] = 0;
+                }
+            }
+        }
+    }
+    for (int k = 3; k > -1; k--)
+    {
+        for (int i = 0; i < 3; i++)
+        {
+            if (gr[k][i + 1] == gr[k][i] && gr[k][i + 1] != 0)
+            {
+                gr[k][i + 1] = 2 * (gr[k][i]);
+                ref[k][i + 1] = 1;
+                gr[k][i] = 0;
+                ref[k][i] = 0;
+            }
+        }
+    }
+}
+void move_left(int gr[4][4], int ref[4][4])
+{
+    for (int k = 0; k < 4; k++)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            for (int m = 0; m < 4; m++)
+            {
+                if (i + m >= 4)
+                {
+                    continue;
+                }
+                if (gr[k][i + m] != 0 && gr[k][i] == 0)
+                {
+                    gr[k][i] = gr[k][i + m];
+                    ref[k][i] = 1;
+                    gr[k][i + m] = 0;
+                    ref[k][i + m] = 0;
+                }
+            }
+        }
+    }
+    for (int k = 0; k < 4; k++)
+    {
+        for (int i = 0; i < 4; i++)
+        {
+            if (gr[k][i+1]==gr[k][i]&&gr[k][i]!=0)
+            {
+                gr[k][i]=2*(gr[k][i+1]);
+                ref[k][i]=1;
+                gr[k][i+1]=0;
+                ref[k][i+1]=0;
+            }
+            
+        }
+        
+    }
+    
 }
 int main()
 {
@@ -138,7 +208,7 @@ int main()
     {
         count++;
         gen(grid, check);
-        print(grid);
+        print(grid, count);
         printf("select your move:-\n 1.Move Up(W)\t2.Move Right(D)\t3.Move Left(A)\t4.Move Down(S)\n");
         char move;
         scanf(" %c", &move);

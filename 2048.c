@@ -110,7 +110,7 @@ void move_down(int gr[4][4], int ref[4][4])
     // --------------------merge slot below------------------------------------------------------
     for (int k = 0; k < 4; k++)
     {
-        for (int i = 3; i > -1; i--)
+        for (int i = 3; i > 0; i--)
         {
             if (gr[i][k] == gr[i - 1][k] && gr[i][k] != 0)
             {

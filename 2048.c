@@ -165,17 +165,6 @@ void move_up(int gr[4][4], int ref[4][4], int *score)
             }
         }
     }
-    //         if (gr[i + 1][k] != 0 && gr[i][k] != gr[i + 1][k] && gr[i][k] != 0)
-    //         {
-    //             up++;
-    //         }
-    //         else
-    //         {
-    //             up = 0;
-    //         }
-    //     }
-    // }
-    // return up;
 }
 void move_down(int gr[4][4], int ref[4][4], int *score)
 {
@@ -215,7 +204,6 @@ void move_down(int gr[4][4], int ref[4][4], int *score)
         }
     }
 
-    // return down;
 }
 void move_right(int gr[4][4], int ref[4][4], int *score)
 {
@@ -252,17 +240,6 @@ void move_right(int gr[4][4], int ref[4][4], int *score)
                 gr[k][i] = 0;
                 ref[k][i] = 0;
             }
-            //         if (gr[k][i + 1] != 0 && gr[k][i] != gr[k][i + 1] && gr[k][i] != 0)
-            //         {
-            //             right++;
-            //         }
-            //         else
-            //         {
-            //             right = 0;
-            //         }
-            //     }
-            // }
-            // return right;
         }
     }
 }
@@ -301,17 +278,6 @@ void move_left(int gr[4][4], int ref[4][4], int *score)
                 gr[k][i + 1] = 0;
                 ref[k][i + 1] = 0;
             }
-            //         if (gr[k][i + 1] != 0 && gr[k][i] != gr[k][i + 1] && gr[k][i] != 0)
-            //         {
-            //             left++;
-            //         }
-            //         else
-            //         {
-            //             left = 0;
-            //         }
-            //     }
-            // }
-            // return left;
         }
     }
 }

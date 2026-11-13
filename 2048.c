@@ -7,24 +7,13 @@ void gridfull(int gr[4][4])
     int down = 0, up = 0, left = 0, right = 0;
     for (int k = 0; k < 4; k++)
     {
-        for (int i = 0; i + 1 < 4; i++)
-        {
-
-            if (gr[i + 1][k] != 0 && gr[i][k] != gr[i + 1][k] && gr[i][k] != 0)
-            {
-                down++;
-            }
-            else
-            {
-                down = 0;
-            }
-        }
-    }
-    for (int k = 0; k < 4; k++)
-    {
         for (int i = 3; i - 1 > -1; i--)
         {
-
+            if (gr[i - 1][k]== 0 || gr[i][k] == 0)
+            {
+                up=0;
+                break;
+            }
             if (gr[i - 1][k] != 0 && gr[i][k] != gr[i - 1][k] && gr[i][k] != 0)
             {
                 up++;
@@ -39,7 +28,11 @@ void gridfull(int gr[4][4])
     {
         for (int i = 3; i - 1 > -1; i--)
         {
-
+            if (gr[k][i - 1] == 0 || gr[k][i] == 0)
+            {
+                left=0;
+                break;
+            }
             if (gr[k][i - 1] != 0 && gr[k][i] != gr[k][i - 1] && gr[k][i] != 0)
             {
                 left++;
@@ -54,7 +47,11 @@ void gridfull(int gr[4][4])
     {
         for (int i = 0; i + 1 < 4; i++)
         {
-
+            if (gr[i + 1][k] == 0 || gr[i][k] == 0)
+            {
+                down=0;
+                break;
+            }
             if (gr[i + 1][k] != 0 && gr[i][k] != gr[i + 1][k] && gr[i][k] != 0)
             {
                 down++;
@@ -69,8 +66,12 @@ void gridfull(int gr[4][4])
     {
         for (int i = 0; i + 1 < 4; i++)
         {
-
-            if (gr[i + 1][k] != 0 && gr[i][k] != gr[i + 1][k] && gr[i][k] != 0)
+            if (gr[k][i + 1] == 0 || gr[k][i] == 0)
+            {
+                right=0;
+                break;
+            }
+            if (gr[k][i + 1] != 0 && gr[k][i + 1] != gr[k][i + 1] && gr[k][i + 1] != 0)
             {
                 right++;
             }
@@ -80,7 +81,7 @@ void gridfull(int gr[4][4])
             }
         }
     }
-    if (left >= 4 || down >= 4 || up >= 4 || right >= 4)
+    if (left >=12 || down >=12 || up >=12 || right >=12)
     {
         printf("GAME OVER!!!\n");
         exit(0);
@@ -203,7 +204,6 @@ void move_down(int gr[4][4], int ref[4][4], int *score)
             }
         }
     }
-
 }
 void move_right(int gr[4][4], int ref[4][4], int *score)
 {
@@ -319,7 +319,7 @@ int main()
         }
         else if (move == 'd' || move == 'D')
         {
-             move_right(grid, check, &score);
+            move_right(grid, check, &score);
             printf("your score -> %d\n", score);
         }
     }

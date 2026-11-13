@@ -5,6 +5,21 @@
 void gridfull(int gr[4][4])
 {
     int down = 0, up = 0, left = 0, right = 0;
+    // for (int k = 0; k < 4; k++)
+    // {
+    //     for (int i = 0; i + 1 < 4; i++)
+    //     {
+
+    //         if (gr[i + 1][k] != 0 && gr[i][k] != gr[i + 1][k] && gr[i][k] != 0)
+    //         {
+    //             down++;
+    //         }
+    //         else
+    //         {
+    //             down = 0;
+    //         }
+    //     }
+    // }
     for (int k = 0; k < 4; k++)
     {
         for (int i = 3; i - 1 > -1; i--)
